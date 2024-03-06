@@ -1,0 +1,23 @@
+<%= render "nav" %>
+ <div class="container">
+    <h3 class="text-center">Event listing</h3>
+        <table class="table">
+            <thead>
+              <th> Event name</th>
+              <th> Start Date</th>
+              <th> End Date</th>
+              <th> </th>
+            </thead>
+            <tbody>
+            <% @events.each do |event|%>
+            <tr>
+                <td><%= event.title %></td>
+                <td><%= event.start_date %></td>
+                <td><%= event.end_date %></td>
+                <td><%= link_to 'view', event , class:"btn btn-success btn-sm" %></td>
+            </tr>
+            <% end %>
+            </tbody>
+      </table>
+</div>
+

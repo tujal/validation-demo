@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-dark mb-3">
+    <h3 style="padding-left:10px; color:white">Event<span style="color:red">Planner</span> </h3>
+    </nav>
+    <div class="container" style="width:50%">
+    <h3 class="text-center">New Event </h3>
+    <%= form_with model: @event do |form| %>
+  <div>
+    <%= form.label :title, class:"form-label" %><br>
+    <%= form.text_field :title, class:"form-control" %>
+    <% @event.errors.full_messages_for(:title).each do | message |%>
+    <snap class="danger"><%= message %></span>
+    <% end%>
+  </div>
+
+  <div>
+    <%= form.label :start_date %><br>
+    <%= form.date_field :start_date,  class:"form-control" %>
+    <% @event.errors.full_messages_for(:start_end).each do | message |%>
+    <snap class="danger"><%= message %></span>
+    <% end%>
+  </div>
+    <div>
+    <%= form.label :end_date %><br>
+    <%= form.date_field :end_date,  class:"form-control" %>
+    <% @event.errors.full_messages_for(:end_date).each do | message |%>
+    <snap class="danger"><%= message %></span>
+    <% end%>
+  </div>
+
+  <div><br>
+    <%= form.submit class:"btn btn-success " %>
+    <%= link_to 'Back' , root_path, class:"btn btn-outline-success"%>
+  </div>
+<% end %>
+    
+  </div>
+  </body>
+</html>
